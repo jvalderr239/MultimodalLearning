@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build"
+
+[project]
+name = "Audio-Visual-Multimodal-Learning"
+version = "0.0.1"
+authors = [
+  { name="Jose Valderrama", email="jvalderr239@gmail.com" },
+]
+description = "Project to train Multimodal model on audio-visual data"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jvalderr239/MultimodalLearning"
+"Bug Tracker" = "https://github.com/jvalderr239/MultimodalLearning/issues"
