@@ -1,7 +1,7 @@
 # define the name of the virtual environment directory
 VENV := venv
 BIN := ${VENV}/bin
-PYTHON := ${BIN}/python3
+PYTHON := ${BIN}/python39
 PIP := ${BIN}/pip
 DIST := ${VENV}/dist
 
@@ -19,14 +19,14 @@ endef
 
 export PRINT_HELP_SCRIPT
 
-python_src = src scripts/*.py models/* tests/*.py
+python_src = src scripts/*.py tests/*.py
 coverage_src = src
 # default target, when make executed without arguments
 all: venv
 
 $(VENV)/bin/activate: requirements.txt
-	{PYTHON} -m venv $(VENV)
-	${PIP} install --upgrade pip black isort mypy pytest coverage pylint
+	python3 -m venv $(VENV)
+	${PIP} install --upgrade pip black isort mypy==0.910 pytest coverage pylint
 	${PIP} install -r requirements.txt
 
 help:
@@ -42,7 +42,7 @@ check-format:
 	isort --check-only ${python_src}
 
 check-types:
-	mypy ${python_src}
+	${BIN}/mypy ${python_src}
 
 build: clean venv
 	${PIP} install wheel
